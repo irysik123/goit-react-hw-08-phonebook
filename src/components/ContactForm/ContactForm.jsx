@@ -14,7 +14,7 @@ export default function ContactForm() {
     const newContact = {
       id: nanoid(),
       name,
-      phone,
+      number: phone,
     };
     if (items.map(item => item.name.toLowerCase().includes(
       newContact.name.toLowerCase()

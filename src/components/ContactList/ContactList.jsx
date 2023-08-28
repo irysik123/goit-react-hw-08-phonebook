@@ -12,10 +12,10 @@ const ContactList = ({ list }) => {
 
   return (
     <List>
-      {list.map(({ id, name, phone }) => (
+      {list.map(({ id, name, number }) => (
         <ListItem key={id}>
           <ContactDetail>{name}</ContactDetail>
-          <ContactDetail>{phone}</ContactDetail>
+          <ContactDetail>{number}</ContactDetail>
           <Button type="button" onClick={() => onDeleteContact(id)}>Delete contact</Button>
         </ListItem>
       ))}
