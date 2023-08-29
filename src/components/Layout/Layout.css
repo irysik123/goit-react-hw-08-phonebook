@@ -1,7 +1,4 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 8px 0;
     margin-bottom: 10px;
     border-bottom: 1px solid black;
@@ -11,12 +8,17 @@
   .list {
     display: flex;
     gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 35px;
   }
   .list > a {
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
     border-radius: 4px;
+    margin-bottom: 0px;
   }
   .list > a.active {
     color: rgb(194, 36, 70);

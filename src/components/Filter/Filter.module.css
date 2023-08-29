@@ -1,0 +1,16 @@
+.div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+
+  :hover {
+    background-color: #f0ffff;
+    border: 1px solid;
+  }
+}
+
+.input {
+    width: 350px;
+}

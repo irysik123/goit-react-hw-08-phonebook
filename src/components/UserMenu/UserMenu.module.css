@@ -8,3 +8,19 @@
     font-weight: 700;
   }
   
+  .button {
+    height: 30px;
+    width: 130px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid rgb(194, 36, 70);
+    transition-duration: 0.4s;
+  
+    &:hover {
+      background-color: rgb(194, 36, 70); 
+      color: white;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+    }
+  }

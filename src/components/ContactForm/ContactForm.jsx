@@ -1,10 +1,11 @@
 import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
-import { Container, Button } from './ContactForm.styled';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
+import { Input } from '@chakra-ui/react';
+import css from './ContactForm.module.css';
 
 export default function ContactForm() {
   let dispatch = useDispatch();
@@ -16,15 +17,18 @@ export default function ContactForm() {
       name,
       number: phone,
     };
-    if (items.map(item => item.name.toLowerCase().includes(
-      newContact.name.toLowerCase()
-    )).some(name => name === true))
-     {
+    if (
+      items
+        .map(item =>
+          item.name.toLowerCase().includes(newContact.name.toLowerCase())
+        )
+        .some(name => name === true)
+    ) {
       alert(`${newContact.name} is already in contacts`);
     } else {
       dispatch(addContact(newContact));
       setSubmitting(true);
-      resetForm()
+      resetForm();
     }
   };
 
@@ -54,7 +58,7 @@ export default function ContactForm() {
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        addNewContact(values, setSubmitting, resetForm );
+        addNewContact(values, setSubmitting, resetForm);
       }}
     >
       {({
@@ -66,9 +70,10 @@ export default function ContactForm() {
         handleSubmit,
       }) => (
         <form onSubmit={handleSubmit}>
-          <Container>
+          <div className={css.div}>
             <p>Name</p>
-            <input
+            <Input
+              size="sm"
               type="text"
               name="name"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -76,13 +81,15 @@ export default function ContactForm() {
               onChange={handleChange}
               value={values.name}
               onBlur={handleBlur}
+              className={css.input}
             />
             {errors.name && touched.name && errors.name}
-          </Container>
+          </div>
 
-          <Container>
+          <div className={css.div}>
             <p>Number</p>
-            <input
+            <Input
+              size="sm"
               type="tel"
               name="phone"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -90,13 +97,14 @@ export default function ContactForm() {
               onChange={handleChange}
               value={values.phone}
               onBlur={handleBlur}
+              className={css.input}
             />
             {errors.phone && touched.phone && errors.phone}
-          </Container>
+          </div>
 
-          <Button type="submit" >
+          <button className={css.button} type="submit">
             Add contact
-          </Button>
+          </button>
         </form>
       )}
     </Formik>
