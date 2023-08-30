@@ -3,6 +3,7 @@
     margin-bottom: 10px;
     border-bottom: 1px solid black;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+    background-color:hsl(318.1deg 52.21% 86.79% / 50%);
   }
   
   .list {

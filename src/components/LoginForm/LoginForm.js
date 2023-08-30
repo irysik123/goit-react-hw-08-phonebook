@@ -26,7 +26,7 @@ export const LoginForm = () => {
       </label>
       <label className={css.label}>
         Password
-        <Input size='sm' type="password" name="password" />
+        <Input size='sm' type="password" name="password" className={css.input} />
       </label>
       <button type="submit" className={css.button}>Log In</button>
     </form>
