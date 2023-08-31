@@ -7,7 +7,9 @@ import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/auth-operations';
+import { Navigate } from 'react-router-dom';
 
+const HomeView = lazy(() => import('../views/HomeView'))
 const ContactsView = lazy(() => import('../views/ContactsView'));
 const LoginView = lazy(() => import('../views/LoginView'));
 const RegisterView = lazy(() => import('../views/RegisterView'));
@@ -25,6 +27,7 @@ export default function App() {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<HomeView />}/>
         <Route
           path="/contacts"
           element={
@@ -43,6 +46,7 @@ export default function App() {
             <RestrictedRoute component={LoginView} redirectTo="/contacts" />
           }
         />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );
